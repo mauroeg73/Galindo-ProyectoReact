@@ -1,10 +1,10 @@
-export const ProductCard = ({ titulo, desc, precio }) => {
+export const ProductCard = ({ img, title, description, price }) => {
   return (
-    <di>
-      <img src="" alt="" />
-      <h4>{titulo}</h4>
-      <h3>{desc}</h3>
-      <h3>{precio}</h3>
-    </di>
+    <div style={{ border: "2px solid black" }}>
+      <img src={img} width={"175px"} alt="" />
+      <h2>{title}</h2>
+      <h3>{description}</h3>
+      <h3>{price}</h3>
+    </div>
   );
 };

@@ -1,11 +1,13 @@
+import ItemCountContainer from "./components/common/itemCount/ItemCountContainer";
 import { Navbar } from "./components/layout/Navbar";
-import { ItemListContainer } from "./pages/ItemListContainer";
+import ItemListContainer from "./pages/itemListContainer/ItemListContainer";
 
 const App = () => {
   return (
     <div>
       <Navbar />
-      <ItemListContainer greeting="Bienvenidos a Locotes Indumetaria" />
+      <ItemListContainer />
+      <ItemCountContainer stock={10} />
     </div>
   );
 };
