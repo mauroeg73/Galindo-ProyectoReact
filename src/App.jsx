@@ -1,13 +1,16 @@
-import ItemCountContainer from "./components/common/itemCount/ItemCountContainer";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { Navbar } from "./components/layout/Navbar";
-import ItemListContainer from "./pages/itemListContainer/ItemListContainer";
+import { ItemListContainer } from "./pages/itemListContainer/ItemListContainer";
 
 const App = () => {
   return (
     <div>
-      <Navbar />
-      <ItemListContainer />
-      <ItemCountContainer stock={10} />
+      <BrowserRouter>
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<ItemListContainer />} />
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 };

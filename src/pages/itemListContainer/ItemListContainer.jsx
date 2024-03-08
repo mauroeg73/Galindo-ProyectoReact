@@ -1,25 +1,19 @@
 import { useEffect, useState } from "react";
-import { products } from "../../productsMock";
-import ItemListPresent from "./ItemListPresent";
+import { getProducts } from "../../productsMock";
+import { ItemList } from "../../components/common/ItemList";
 
-const ItemListContainer = () => {
-  const [items, setItems] = useState([]);
+export const ItemListContainer = () => {
+  const [products, setProducts] = useState;
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    const tarea = new Promise((resolve, reject) => {
-      resolve(products);
+    getProducts().then((resp) => {
+      setProducts(resp);
+      setIsLoading(false);
     });
-
-    tarea
-      .then((res) => {
-        setItems(res);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
   }, []);
 
-  return <ItemListPresent items={items} />;
+  return (
+    <>{isLoading ? <h2>cargando</h2> : <ItemList products={products} />}</>
+  );
 };
-
-export default ItemListContainer;

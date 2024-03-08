@@ -1,4 +1,4 @@
-export let products = [
+let products = [
   {
     id: 1,
     title: "remeras oversize",
@@ -37,17 +37,14 @@ export let products = [
   },
 ];
 
-// export const getProducts = () =>{
-//     return new Promise ((resolve, reject) =>{
-//         if (products.lenght > o){
-//             setTimeout(() => {
-//                 resolve (products);
-//             }, 2000);
-//         } else {
-//             reject ("no se encontraron productos");
-//         }
-//         });
-//     };
-
-//     )
-// }
+export const getProducts = () => {
+  return new Promise((resolve, reject) => {
+    if (products.lenght > 0) {
+      setTimeout(() => {
+        resolve(products);
+      }, 2000);
+    } else {
+      reject("no se encontraron productos");
+    }
+  });
+};

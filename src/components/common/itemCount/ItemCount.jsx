@@ -1,8 +1,7 @@
 import { useState } from "react";
-import ItemCountPresent from "./ItemCountPresent";
 
-const ItemCountContainer = ({ stock }) => {
-  const [counter, setCounter] = useState(1);
+export const ItemCount = ({ stock, inicial = 1 }) => {
+  const [counter, setCounter] = useState(inicial);
 
   const sumar = () => {
     if (counter < stock) {
@@ -20,7 +19,12 @@ const ItemCountContainer = ({ stock }) => {
     }
   };
 
-  return <ItemCountPresent counter={counter} sumar={sumar} restar={restar} />;
+  return (
+    <div>
+      <button onClick={sumar}>sumar</button>
+      <h3>{counter}</h3>
+      <button onClick={restar}>restar</button>
+      <button>agregar al carrito</button>
+    </div>
+  );
 };
-
-export default ItemCountContainer;
