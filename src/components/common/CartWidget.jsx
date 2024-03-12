@@ -1,11 +1,14 @@
-import { BsFillCartFill } from "react-icons/bs";
+import { Badge } from "@mui/material";
+import { Link } from "react-router-dom";
+import { BsFillCartCheckFill } from "react-icons/bs";
 
 const CartWidget = () => {
   return (
-    <div>
-      <span>3</span>
-      <BsFillCartFill color="green" />
-    </div>
+    <Link to="/cart">
+      <Badge badgeContent={0} showZero color="primary">
+        <BsFillCartCheckFill size="40px" color="green" />
+      </Badge>
+    </Link>
   );
 };
 

@@ -1,30 +1,24 @@
-import { useState } from "react";
-
-export const ItemCount = ({ stock, inicial = 1 }) => {
-  const [counter, setCounter] = useState(inicial);
-
-  const sumar = () => {
-    if (counter < stock) {
-      setCounter(counter + 1);
-    } else {
-      alert("maximo de unidades");
-    }
-  };
-
-  const restar = () => {
-    if (counter > 1) {
-      setCounter(counter - 1);
-    } else {
-      alert("minimo de unidades");
-    }
-  };
-
+const ItemCount = ({ counter, addOne, subOne, onAdd }) => {
   return (
-    <div>
-      <button onClick={sumar}>sumar</button>
-      <h3>{counter}</h3>
-      <button onClick={restar}>restar</button>
-      <button>agregar al carrito</button>
-    </div>
+    <>
+      <div className="d-grid gap-2 d-md-block">
+        <button className="btn btn-primary" onClick={addOne}>
+          sumar
+        </button>
+        <h2> {counter} </h2>
+        <button
+          className="btn btn-primary"
+          onClick={subOne}
+          disabled={counter === 1 ? true : false}
+        >
+          restar
+        </button>
+        <button className="btn btn-primary" onClick={() => onAdd(counter)}>
+          agregar al carrito
+        </button>
+      </div>
+    </>
   );
 };
+
+export default ItemCount;

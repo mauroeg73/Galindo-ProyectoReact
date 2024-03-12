@@ -1,17 +1,21 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { Navbar } from "./components/layout/Navbar";
-import { ItemListContainer } from "./pages/itemListContainer/ItemListContainer";
+import ItemListContainer from "./components/pages/itemListContainer/ItemListContainer";
+import { CartContainer } from "./components/pages/cart/CartContainer";
+import { ItemDetailContainer } from "./components/pages/itemDetailContainer/ItemDetailContainer";
+import { Layout } from "./components/layout/Layout";
 
 const App = () => {
   return (
-    <div>
-      <BrowserRouter>
-        <Navbar />
-        <Routes>
+    <BrowserRouter>
+      <Routes>
+        <Route element={<Layout />}>
           <Route path="/" element={<ItemListContainer />} />
-        </Routes>
-      </BrowserRouter>
-    </div>
+          <Route path="/category/:category" element={<ItemListContainer />} />
+          <Route path="/item/:id" element={<ItemDetailContainer />} />
+          <Route path="/cart" element={<CartContainer />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
   );
 };
 
